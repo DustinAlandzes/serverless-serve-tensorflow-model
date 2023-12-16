@@ -12,13 +12,8 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_s3_bucket" "joplin" {
-  acl           = "private"
+resource "aws_s3_bucket" "serverless_module" {
   bucket_prefix = "serverless-module"
-
-  versioning {
-    enabled = false
-  }
 
   server_side_encryption_configuration {
     rule {
@@ -27,6 +22,12 @@ resource "aws_s3_bucket" "joplin" {
       }
     }
   }
+}
+
+
+resource "aws_s3_bucket_acl" "example" {
+  bucket = aws_s3_bucket.serverless_module.id
+  acl    = "private"
 }
 
 resource "aws_iam_user" "serverless_module" {
@@ -55,8 +56,8 @@ resource "aws_iam_user_policy" "serverless_module" {
           "s3:PutObject"
         ]
         Resource = [
-          aws_s3_bucket.joplin.arn,
-          "${aws_s3_bucket.joplin.arn}/*",
+          aws_s3_bucket.serverless_module.arn,
+          "${aws_s3_bucket.serverless_module.arn}/*",
         ]
       }
     ]
