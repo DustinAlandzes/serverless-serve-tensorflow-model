@@ -24,9 +24,20 @@ resource "aws_s3_bucket_ownership_controls" "serverless_module" {
   }
 }
 
+resource "aws_s3_bucket_public_access_block" "serverless_module" {
+  bucket = aws_s3_bucket.serverless_module.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
 
 resource "aws_s3_bucket_acl" "serverless_module" {
-  depends_on = [aws_s3_bucket_ownership_controls.serverless_module]
+  depends_on = [
+    aws_s3_bucket_ownership_controls.serverless_module,
+    aws_s3_bucket_public_access_block
+  ]
 
   bucket = aws_s3_bucket.serverless_module.id
   acl    = "public-read"
