@@ -24,7 +24,7 @@ jobs:
     - run: terraform init -backend=false
       name: Terraform Init
 
-    - run: terraform validate
+    - run: terraform validate ./terraform
       name: Terraform Validate
 
     - uses: actions/cache@v3
