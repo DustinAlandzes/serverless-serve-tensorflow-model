@@ -7,6 +7,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: ./terraform
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -24,7 +28,7 @@ jobs:
     - run: terraform init -backend=false
       name: Terraform Init
 
-    - run: terraform validate ./terraform
+    - run: terraform validate
       name: Terraform Validate
 
     - uses: actions/cache@v3
