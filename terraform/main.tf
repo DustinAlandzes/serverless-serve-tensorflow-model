@@ -14,20 +14,12 @@ provider "aws" {
 
 resource "aws_s3_bucket" "serverless_module" {
   bucket_prefix = "serverless-module"
-
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
-  }
 }
 
 
 resource "aws_s3_bucket_acl" "example" {
   bucket = aws_s3_bucket.serverless_module.id
-  acl    = "private"
+  acl    = "public-read"
 }
 
 resource "aws_iam_user" "serverless_module" {
