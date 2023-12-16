@@ -36,7 +36,7 @@ resource "aws_s3_bucket_public_access_block" "serverless_module" {
 resource "aws_s3_bucket_acl" "serverless_module" {
   depends_on = [
     aws_s3_bucket_ownership_controls.serverless_module,
-    aws_s3_bucket_public_access_block
+    aws_s3_bucket_public_access_block.serverless_module
   ]
 
   bucket = aws_s3_bucket.serverless_module.id
