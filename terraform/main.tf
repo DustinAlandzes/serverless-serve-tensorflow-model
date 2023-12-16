@@ -17,7 +17,17 @@ resource "aws_s3_bucket" "serverless_module" {
 }
 
 
-resource "aws_s3_bucket_acl" "example" {
+resource "aws_s3_bucket_ownership_controls" "serverless_module" {
+  bucket = aws_s3_bucket.serverless_module.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
+
+resource "aws_s3_bucket_acl" "serverless_module" {
+  depends_on = [aws_s3_bucket_ownership_controls.serverless_module]
+
   bucket = aws_s3_bucket.serverless_module.id
   acl    = "public-read"
 }
