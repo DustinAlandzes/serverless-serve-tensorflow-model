@@ -12,7 +12,7 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_s3_bucket" "joplin"    {
+resource "aws_s3_bucket" "joplin" {
   acl           = "private"
   bucket_prefix = "serverless-module"
 
