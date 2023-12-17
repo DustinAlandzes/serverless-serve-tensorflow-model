@@ -1,7 +1,7 @@
 export AWS_DEFAULT_REGION=us-west-2
-chalice package --pkg-format terraform ../../terraform/chalice
+chalice package --pkg-format terraform ../../terraform
 
 # remove the provider block
-cat ../../terraform/chalice/chalice.tf.json | jq 'del(.terraform)' > /tmp/chalice.tf.json
-rm ../../terraform/chalice/chalice.tf.json
-mv /tmp/chalice.tf.json ../../terraform/chalice/chalice.tf.json
+cat ../../terraform/chalice.tf.json | jq 'del(.terraform)' > /tmp/chalice.tf.json
+rm ../../terraform/chalice.tf.json
+mv /tmp/chalice.tf.json ../../terraform/chalice.tf.json
