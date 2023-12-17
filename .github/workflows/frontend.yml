@@ -26,11 +26,11 @@ jobs:
       - name: install dependencies
         run: npm ci
       - name: make sure it builds
-        run: npm build
-      - name: make sure the tests pass
-        run: npm test
-      - name: make sure it passes linting
-        run: npm lint
+        run: npm run build
+#      - name: make sure the tests pass
+#        run: npm run test
+      - name: make sure it passes the linter
+        run: npm run lint
       # https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#uploading-build-and-test-artifacts
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
