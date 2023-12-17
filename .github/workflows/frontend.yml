@@ -47,7 +47,12 @@ jobs:
   deploy:
     if: github.ref_name == 'main'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
+      - name: install dependencies
+        run: npm ci
       - name: build
         run: npm run build
       - name: Upload to S3
