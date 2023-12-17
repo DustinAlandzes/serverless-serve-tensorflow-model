@@ -36,15 +36,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist-without-markdown
-          path: |
-            dist
-            !dist/**/*.md
+          path: ./dist
           retention-days: 5
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: output/test/code-coverage.html
+#      - name: Archive code coverage results
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: code-coverage-report
+#          path: output/test/code-coverage.html
 
   deploy:
     if: github.ref_name == 'main'
@@ -53,7 +51,7 @@ jobs:
       - name: build
         run: npm build
       - name: Upload to S3
-        run: aws s3 sync ./build s3://${{ env.S3_BUCKET }}
+        run: aws s3 sync ./dist s3://${{ env.S3_BUCKET }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
