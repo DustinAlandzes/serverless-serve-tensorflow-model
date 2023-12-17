@@ -43,7 +43,7 @@ resource "aws_s3_bucket_acl" "serverless_module" {
   acl    = "public-read"
 }
 
-resource "aws_s3_bucket_website_configuration" "example" {
+resource "aws_s3_bucket_website_configuration" "serverless_module" {
   bucket = aws_s3_bucket.serverless_module.id
 
   index_document {

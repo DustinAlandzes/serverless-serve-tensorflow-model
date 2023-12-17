@@ -3,7 +3,7 @@ import {Container, Group, Burger, MantineProvider} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Root.module.css';
 import '@mantine/core/styles.css';
-import {Outlet, useNavigate} from "react-router-dom";
+import {Outlet, useLocation, useNavigate} from "react-router-dom";
 
 const links = [
   { link: '/', label: 'Home' },
@@ -12,7 +12,8 @@ const links = [
 
 export default function Root() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const location = useLocation();
+  const [active, setActive] = useState(location.pathname);
   const navigate = useNavigate();
 
   const items = links.map((link) => (
