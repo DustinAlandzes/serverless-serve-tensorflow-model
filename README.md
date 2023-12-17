@@ -9,5 +9,10 @@ AWS Serverless module
 * Vite, React, TypeScript
 * Mantine
 * React Router
+* S3
 
 ## Backend
+* Python 3
+* Black, pytest
+* Chalice, AWS Lambda
+* Strawberry, GraphQL
