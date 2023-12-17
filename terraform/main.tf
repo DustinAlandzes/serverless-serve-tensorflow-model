@@ -43,6 +43,13 @@ resource "aws_s3_bucket_acl" "serverless_module" {
   acl    = "public-read"
 }
 
+resource "aws_s3_bucket_website_configuration" "example" {
+  bucket = aws_s3_bucket.serverless_module.id
+
+  index_document {
+    suffix = "index.html"
+  }
+}
 resource "aws_iam_user" "serverless_module" {
   name = "serverless-module-s3-bucket-user"
 }
