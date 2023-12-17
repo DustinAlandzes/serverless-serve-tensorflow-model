@@ -19,8 +19,6 @@ jobs:
 
     - uses: hashicorp/setup-terraform@v3
       name: Setup Terraform
-      with:
-        terraform_version: "1.3.10"
 
     - run: terraform fmt -check -recursive
       name: Terraform Format
