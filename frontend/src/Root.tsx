@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {Container, Group, Burger, MantineProvider} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Root.module.css';
