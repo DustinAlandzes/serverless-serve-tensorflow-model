@@ -4,7 +4,7 @@ from chalice.app import Request, Response
 import strawberry
 from strawberry.chalice.views import GraphQLView
 
-app = Chalice(app_name="BadgerProject")
+app = Chalice(app_name="ChaliceProject")
 
 
 @strawberry.type
@@ -36,6 +36,11 @@ class Mutation:
 
 schema = strawberry.Schema(query=Query, mutation=Mutation)
 view = GraphQLView(schema=schema, graphiql=True)
+
+
+@app.route('/')
+def index():
+    return {'hello': 'world'}
 
 
 @app.route("/graphql", methods=["GET", "POST"], content_types=["application/json"])
