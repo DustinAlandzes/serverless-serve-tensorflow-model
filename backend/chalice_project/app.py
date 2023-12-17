@@ -35,7 +35,7 @@ class Mutation:
 
 
 schema = strawberry.Schema(query=Query, mutation=Mutation)
-view = GraphQLView(schema=schema, graphiql=False)
+view = GraphQLView(schema=schema, graphiql=True)
 
 
 @app.route("/graphql", methods=["GET", "POST"], content_types=["application/json"])
