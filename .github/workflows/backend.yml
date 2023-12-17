@@ -1,4 +1,4 @@
-name: backend-build-and-deploy
+name: backend-build-and-test
 run-name: Back-end build, and test
 
 on:

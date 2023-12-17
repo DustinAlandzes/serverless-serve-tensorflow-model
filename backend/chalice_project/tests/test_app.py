@@ -1,4 +1,4 @@
-from backend.app import schema
+from ..app import schema
 
 
 def test_query():
