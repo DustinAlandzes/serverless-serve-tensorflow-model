@@ -1,6 +1,6 @@
+import typing
 from chalice import Chalice
 from chalice.app import Request, Response
-
 import strawberry
 from strawberry.chalice.views import GraphQLView
 
@@ -8,10 +8,22 @@ app = Chalice(app_name="BadgerProject")
 
 
 @strawberry.type
+class Book:
+    title: str
+    author: str
+
+def get_books():
+    return [
+        Book(
+            title="Animal Farm",
+            author="George Orwell",
+        ),
+    ]
+
+
+@strawberry.type
 class Query:
-    @strawberry.field
-    def greetings(self) -> str:
-        return "hello from the illustrious stack badger"
+    books: typing.List[Book] = strawberry.field(resolver=get_books)
 
 
 @strawberry.type
