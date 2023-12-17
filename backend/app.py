@@ -12,6 +12,7 @@ class Book:
     title: str
     author: str
 
+
 def get_books():
     return [
         Book(

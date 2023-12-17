@@ -11,12 +11,10 @@ def test_query():
         }
     """
 
-
     result = schema.execute_sync(
         query,
         variable_values={"title": "Animal Farm"},
     )
-
 
     assert result.errors is None
     assert result.data["books"] == [
