@@ -46,7 +46,7 @@ jobs:
 #          path: output/test/code-coverage.html
 
   deploy:
-#    if: github.ref_name == 'main'
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     defaults:
       run:
