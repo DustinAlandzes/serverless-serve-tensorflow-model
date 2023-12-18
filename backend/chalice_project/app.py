@@ -1,10 +1,12 @@
 import typing
-from chalice import Chalice
-from chalice.app import Request, Response
+from chalice import Chalice, IAMAuthorizer
+from chalice.app import Request, Response, CORSConfig
 import strawberry
 from strawberry.chalice.views import GraphQLView
 
+
 app = Chalice(app_name="ChaliceProject")
+app.api.cors = True
 
 
 @strawberry.type
@@ -38,13 +40,7 @@ schema = strawberry.Schema(query=Query, mutation=Mutation)
 view = GraphQLView(schema=schema, graphiql=True)
 
 
-@app.route('/')
-def index():
-    return {'hello': 'world'}
-
-
 @app.route("/graphql", methods=["GET", "POST"], content_types=["application/json"])
 def handle_graphql() -> Response:
     request: Request = app.current_request
-    result = view.execute_request(request)
-    return result
+    return view.execute_request(request)
