@@ -21,8 +21,6 @@ export default function Root() {
       cache: new InMemoryCache(),
     });
 
-
-
   const items = links.map((link) => (
     <a
       key={link.label}
