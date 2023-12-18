@@ -26,14 +26,14 @@ jobs:
 
       - name: install dependencies
         run: npm ci
+      - name: graphql
+        run: npm run gql-compile
       - name: make sure it builds
         run: npm run build
 #      - name: make sure the tests pass
 #        run: npm run test
       - name: make sure it passes the linter
         run: npm run lint
-      - name: graphql
-        run: npm run gql-compile
       # https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#uploading-build-and-test-artifacts
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
@@ -64,10 +64,10 @@ jobs:
 
       - name: install dependencies
         run: npm ci
-      - name: build
-        run: npm run build
       - name: graphql
         run: npm run gql-compile
+      - name: build
+        run: npm run build
       - name: Upload to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
