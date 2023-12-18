@@ -1,6 +1,10 @@
 # serverless-module
-AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3, and a Chalice/AWS Lambda backend.
+[![frontend-build-and-deploy](https://github.com/DustinAlandzes/serverless-module/actions/workflows/frontend.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-module/actions/workflows/frontend.yml)
+[![backend-build-and-test](https://github.com/DustinAlandzes/serverless-module/actions/workflows/backend.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-module/actions/workflows/backend.yml)
+[![Terraform linting](https://github.com/DustinAlandzes/serverless-module/actions/workflows/terraform-linting.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-module/actions/workflows/terraform-linting.yml)
 
+
+AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3, and a Chalice/AWS Lambda backend.
 
 ## URLS
 * frontend: http://serverless-module20231216202918611500000001.s3-website-us-west-2.amazonaws.com/

@@ -64,6 +64,8 @@ jobs:
         run: npm ci
       - name: build
         run: npm run build
+        env:
+          VITE_BACKEND_GRAPHQL_ENDPOINT: "https://9komogf4ce.execute-api.us-west-2.amazonaws.com/api/graphql"
       - name: Upload to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
