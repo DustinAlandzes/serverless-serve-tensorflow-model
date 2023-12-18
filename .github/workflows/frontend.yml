@@ -27,7 +27,7 @@ jobs:
       - name: install dependencies
         run: npm ci
       - name: graphql
-        run: npm run gql-compile
+        run: npm run compile-gql
       - name: make sure it builds
         run: npm run build
 #      - name: make sure the tests pass
@@ -65,7 +65,7 @@ jobs:
       - name: install dependencies
         run: npm ci
       - name: graphql
-        run: npm run gql-compile
+        run: npm run compile-gql
       - name: build
         run: npm run build
       - name: Upload to S3
