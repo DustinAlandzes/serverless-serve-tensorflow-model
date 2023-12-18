@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Container, Group, Burger, MantineProvider} from '@mantine/core';
+import {Container, Group, Burger, MantineProvider, Drawer, ScrollArea, Divider, rem, Button} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Root.module.css';
 import '@mantine/core/styles.css';
@@ -43,11 +43,35 @@ export default function Root() {
             <header className={classes.header}>
               <Container size="md" className={classes.inner}>
                 Logo
-                <Group gap={5} visibleFrom="xs">
+                <Group gap={5} visibleFrom="sm" id={"non-drawer-items"}>
                   {items}
                 </Group>
 
-                <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+                <Burger opened={opened} onClick={toggle} hiddenFrom="sm" />
+
+
+                  <Drawer
+                    opened={opened}
+                    onClose={toggle}
+                    size="100%"
+                    padding="md"
+                    title="Navigation"
+                    hiddenFrom="sm"
+                    zIndex={1000000}
+                  >
+                    <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md" id={"drawer-scroll-area"}>
+                      <Divider my="sm" />
+
+                      {items}
+
+                      <Divider my="sm" />
+
+                      <Group justify="center" grow pb="xl" px="md">
+                        <Button variant="default">Log in</Button>
+                        <Button>Sign up</Button>
+                      </Group>
+                    </ScrollArea>
+                  </Drawer>
               </Container>
             </header>
             <Container size="md" className={classes.inner}>
