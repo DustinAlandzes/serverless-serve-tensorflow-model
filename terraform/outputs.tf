@@ -15,6 +15,6 @@ output "aws_secret" {
 }
 
 output "cloudfront_domain" {
-  value = aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.domain_name
+  value       = aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.domain_name
   description = "Domain name of the cloudfront distribution"
 }
