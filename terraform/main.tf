@@ -54,6 +54,20 @@ resource "aws_s3_bucket_website_configuration" "serverless_module" {
     key = "index.html"
   }
 }
+
+resource "aws_cloudfront_distribution" "s3_bucket_cloudfront_distribution" {
+  origin {
+    domain_name = aws_s3_bucket.serverless_module.bucket_regional_domain_name
+    origin_id   = "myS3Origin"
+  }
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  default_root_object = "index.html"
+
+  price_class = "PriceClass_100"
+}
+
 resource "aws_iam_user" "serverless_module" {
   name = "serverless-module-s3-bucket-user"
 }

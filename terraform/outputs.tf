@@ -13,3 +13,8 @@ output "aws_secret" {
   description = "AWS secret for IAM user"
   sensitive   = true
 }
+
+output "cloudfront_domain" {
+  value = aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.domain_name
+  description = "Domain name of the cloudfront distribution"
+}
