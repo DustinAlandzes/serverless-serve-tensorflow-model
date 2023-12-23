@@ -14,6 +14,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "serverless_module" {
   bucket_prefix = "serverless-module"
+  force_destroy = true
 }
 
 
