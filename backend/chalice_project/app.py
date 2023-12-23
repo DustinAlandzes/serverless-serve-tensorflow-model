@@ -1,13 +1,11 @@
 import typing
-from chalice import Chalice, IAMAuthorizer
-from chalice.app import Request, Response, CORSConfig
+from chalice import Chalice
+from chalice.app import Request, Response
 import strawberry
 from strawberry.chalice.views import GraphQLView
 
-
 app = Chalice(app_name="ChaliceProject")
 app.api.cors = True
-
 
 @strawberry.type
 class Book:
