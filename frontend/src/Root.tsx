@@ -8,6 +8,7 @@ import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 
 const links = [
   { link: '/', label: 'Home' },
+  { link: '/login', label: 'Login' },
   { link: '/another-page', label: 'Another Page' },
 ];
 

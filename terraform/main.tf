@@ -172,5 +172,7 @@ resource "aws_cognito_user_pool" "pool" {
   name = "pool"
 
   auto_verified_attributes = ["email"]
+
+  allow_admin_create_user_only = true
 }
 

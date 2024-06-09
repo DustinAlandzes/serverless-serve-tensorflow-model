@@ -3,9 +3,22 @@ from chalice import Chalice
 from chalice.app import Request, Response
 import strawberry
 from strawberry.chalice.views import GraphQLView
+from chalice import CognitoUserPoolAuthorizer
 
 app = Chalice(app_name="ChaliceProject")
-app.api.cors = False
+
+# TODO: enable CORS and set cloudfront distribution as allowed origin using CORSConfig
+#  (https://aws.github.io/chalice/api.html#CORSConfig)
+app.api.cors = True
+
+# https://aws.github.io/chalice/topics/authorizers.html
+authorizer = CognitoUserPoolAuthorizer(
+    'pool', provider_arns=['arn:aws:cognito-idp:us-west-2:166242363699:userpool/us-west-2_YJ59HjYLm'])
+
+
+@app.route('/user-pools', methods=['GET'], authorizer=authorizer)
+def authenticated():
+    return {"success": True}
 
 
 @strawberry.type
@@ -39,7 +52,7 @@ schema = strawberry.Schema(query=Query, mutation=Mutation)
 view = GraphQLView(schema=schema, graphiql=True)
 
 
-@app.route("/graphql", methods=["GET", "POST"], content_types=["application/json"])
+@app.route("/graphql", methods=["GET", "POST"], content_types=["application/json"], authorizer=authorizer)
 def handle_graphql() -> Response:
     request: Request = app.current_request
     return view.execute_request(request)

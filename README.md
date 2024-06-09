@@ -18,7 +18,9 @@ AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3,
     * VITE_BACKEND_GRAPHQL_ENDPOINT (from Terraform after first plan, add /graphql E.g.  https://e1qgaxcqtc.execute-api.us-west-2.amazonaws.com/api/graphql)
 
 3. Connect this repository to a workspace in Terraform Cloud and run the plan. After that you should get LAMBDA_URL and S3_BUCKET as outputs. Add those to the github repository as secrets.
-4. Now create a new pull request and merge it to deploy the frontend. You'll be able to access it from the cloudfront distribution url in the terraform output
+4. Set provider_arns of CognitoUserPoolAuthorizer in chalice to cognito_user_pool_arn from Terraform (arn:aws:cognito-idp:us-west-2:166242363699:userpool/us-west-2_YJ59HjYLm)
+5. Set the frontend's userPoolId and clientId in pages/config.json to cognito_user_pool_id and cognito_user_pool_client_id from Terraform (E.g. us-west-2_YJ59HjYLm and 72nhtdg4i2noqu0ou2q0986ch0)
+6. Now create a new pull request and merge it to deploy the frontend. You'll be able to access it from the cloudfront distribution url in the terraform output
 
 ## URLS
 * frontend cloudfront distribution: https://d1envi61nk6uvp.cloudfront.net/
@@ -36,6 +38,7 @@ AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3,
 * [React Router](https://reactrouter.com/en/main)
 * [S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide//Welcome.html)
 * [Cloudfront](https://docs.aws.amazon.com/cloudfront/#lang/en_us) for HTTPS
+* https://www.npmjs.com/package/@aws-sdk/client-cognito-identity-provider
 
 ## Backend
 * [Python 3](https://docs.python.org/3/)
