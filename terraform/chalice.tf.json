@@ -16,7 +16,7 @@
     "aws_lambda_function": {
       "api_handler": {
         "function_name": "a-chalice-project-dev",
-        "runtime": "python3.11",
+        "runtime": "python3.9",
         "handler": "app.app",
         "memory_size": 128,
         "tags": {
