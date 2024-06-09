@@ -74,4 +74,5 @@ jobs:
           echo "AWS_SECRET_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> "$GITHUB_ENV"
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> "$GITHUB_ENV"
           aws s3 sync ./dist s3://${{ vars.S3_BUCKET }} --debug --region us-west-2 --delete --acl public-read
-          aws cloudfront create-invalidation --distribution-id=${{vars.CLOUDFRONT_DISTRIBUTION}} --paths /
+      - name: Invalidate Cloudfront cache
+        run: aws cloudfront create-invalidation --distribution-id=${{vars.CLOUDFRONT_DISTRIBUTION}} --paths /
