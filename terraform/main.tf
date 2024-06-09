@@ -160,6 +160,10 @@ resource "aws_cognito_user_pool_client" "userpool_client" {
   callback_urls                        = ["https://${aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.domain_name}"]
   allowed_oauth_flows_user_pool_client = true
   allowed_oauth_flows                  = ["code", "implicit"]
+  explicit_auth_flows = [
+    "USER_PASSWORD_AUTH", "ALLOW_USER_PASSWORD_AUTH"
+  ]
+
   allowed_oauth_scopes                 = ["email", "openid"]
   supported_identity_providers         = ["COGNITO"]
 }
