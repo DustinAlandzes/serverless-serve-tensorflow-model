@@ -15,14 +15,15 @@ AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3,
 * Secrets (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
   * AWS_ACCESS_KEY_ID
   * AWS_SECRET_ACCESS_KEY
+  * S3_BUCKET (from Terraform after first plan E.g. serverless-module20240609203937756000000001)
 
 3. Connect this repository to a workspace in Terraform Cloud and run the plan. After that you should get LAMBDA_URL and S3_BUCKET as outputs. Add those to the github repository as secrets.
-4. Now create a new pull request and merge it to deploy the frontend.
+4. Now create a new pull request and merge it to deploy the frontend. You'll be able to access it from the cloudfront distribution url in the terraform output
 
 ## URLS
-* frontend cloudfront distribution: https://d3ibzyj917g42s.cloudfront.net/
-* frontend S3 Bucket: http://serverless-module20231216202918611500000001.s3-website-us-west-2.amazonaws.com/
-* backend: https://9komogf4ce.execute-api.us-west-2.amazonaws.com/api/graphql
+* frontend cloudfront distribution: https://d1envi61nk6uvp.cloudfront.net/
+* frontend S3 Bucket: http://serverless-module20240609203937756000000001.s3-website-us-west-2.amazonaws.com/
+* backend: https://e1qgaxcqtc.execute-api.us-west-2.amazonaws.com/api/graphql
 
 ## Terraform
 * [Terraform Cloud](https://developer.hashicorp.com/terraform/cloud-docs)
@@ -46,4 +47,3 @@ AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3,
 * Add AWS Cognito for accessing the API from the frontend
   * https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cognito_user_pool
   * https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html
-  * 
