@@ -23,3 +23,19 @@ output "cloudfront_id" {
   value       = aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.id
   description = "ID of the cloudfront distribution (used to invalidate cache when updating frontend)"
 }
+
+output "congito_user_pool_arn" {
+  value       = aws_cognito_user_pool.pool.arn
+  description = "Used as the provider_arns parameter of CognitoUserPoolAuthorizer in chalice."
+}
+
+output "congito_user_pool_name" {
+  value       = aws_cognito_user_pool.pool.name
+  description = "Used as the name parameter of CognitoUserPoolAuthorizer in chalice."
+}
+
+output "congito_user_pool_client_id" {
+  value       = aws_cognito_user_pool_client.userpool_client.id
+  description = "Used on the frontend client to login."
+}
+
