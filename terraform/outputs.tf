@@ -18,3 +18,8 @@ output "cloudfront_domain" {
   value       = aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.domain_name
   description = "Domain name of the cloudfront distribution"
 }
+
+output "cloudfront_id" {
+  value = aws_cloudfront_distribution.s3_bucket_cloudfront_distribution.id
+  description = "ID of the cloudfront distribution (used to invalidate cache when updating frontend)"
+}
