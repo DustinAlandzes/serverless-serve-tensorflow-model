@@ -5,7 +5,7 @@ import strawberry
 from strawberry.chalice.views import GraphQLView
 
 app = Chalice(app_name="ChaliceProject")
-app.api.cors = True
+app.api.cors = False
 
 
 @strawberry.type
