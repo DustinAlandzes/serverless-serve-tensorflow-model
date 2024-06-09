@@ -164,8 +164,8 @@ resource "aws_cognito_user_pool_client" "userpool_client" {
     "ALLOW_REFRESH_TOKEN_AUTH", "ALLOW_USER_PASSWORD_AUTH"
   ]
 
-  allowed_oauth_scopes                 = ["email", "openid"]
-  supported_identity_providers         = ["COGNITO"]
+  allowed_oauth_scopes         = ["email", "openid"]
+  supported_identity_providers = ["COGNITO"]
 }
 
 resource "aws_cognito_user_pool" "pool" {
