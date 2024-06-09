@@ -24,9 +24,9 @@ output "cloudfront_id" {
   description = "ID of the cloudfront distribution (used to invalidate cache when updating frontend)"
 }
 
-output "cognito_user_pool_arn" {
-  value       = aws_cognito_user_pool.pool.arn
-  description = "Used as the provider_arns parameter of CognitoUserPoolAuthorizer in chalice."
+output "cognito_user_pool_id" {
+  value       = aws_cognito_user_pool.pool.id
+  description = "Used on the frontend client to login."
 }
 
 output "cognito_user_pool_name" {
@@ -34,8 +34,12 @@ output "cognito_user_pool_name" {
   description = "Used as the name parameter of CognitoUserPoolAuthorizer in chalice."
 }
 
+output "cognito_user_pool_arn" {
+  value       = aws_cognito_user_pool.pool.arn
+  description = "Used as the provider_arns parameter of CognitoUserPoolAuthorizer in chalice."
+}
+
 output "cognito_user_pool_client_id" {
   value       = aws_cognito_user_pool_client.userpool_client.id
   description = "Used on the frontend client to login."
 }
-

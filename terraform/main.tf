@@ -167,6 +167,8 @@ resource "aws_cognito_user_pool_client" "userpool_client" {
 resource "aws_cognito_user_pool" "pool" {
   name = "pool"
 
+  auto_verified_attributes = ["email"]
+
   mfa_configuration = "ON"
 
   software_token_mfa_configuration {
