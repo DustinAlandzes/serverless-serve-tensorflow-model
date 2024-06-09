@@ -16,11 +16,6 @@ authorizer = CognitoUserPoolAuthorizer(
     'pool', provider_arns=['arn:aws:cognito-idp:us-west-2:166242363699:userpool/us-west-2_YJ59HjYLm'])
 
 
-@app.route('/user-pools', methods=['GET'], authorizer=authorizer)
-def authenticated():
-    return {"success": True}
-
-
 @strawberry.type
 class Book:
     title: str
