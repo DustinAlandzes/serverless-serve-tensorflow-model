@@ -1,7 +1,7 @@
 # serverless-module
-[![frontend-build-and-deploy](https://github.com/DustinAlandzes/serverless-module/actions/workflows/frontend.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-module/actions/workflows/frontend.yml)
-[![backend-build-and-test](https://github.com/DustinAlandzes/serverless-module/actions/workflows/backend.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-module/actions/workflows/backend.yml)
-[![Terraform linting](https://github.com/DustinAlandzes/serverless-module/actions/workflows/terraform-linting.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-module/actions/workflows/terraform-linting.yml)
+[![frontend-build-and-deploy](https://github.com/DustinAlandzes/serverless-serve-tensorflow-model/actions/workflows/frontend.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-serve-tensorflow-model/actions/workflows/frontend.yml)
+[![backend-build-and-test](https://github.com/DustinAlandzes/serverless-serve-tensorflow-model/actions/workflows/backend.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-serve-tensorflow-model/actions/workflows/backend.yml)
+[![Terraform linting](https://github.com/DustinAlandzes/serverless-serve-tensorflow-model/actions/workflows/terraform-linting.yml/badge.svg)](https://github.com/DustinAlandzes/serverless-serve-tensorflow-model/actions/workflows/terraform-linting.yml)
 
 
 AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3, and a Chalice/AWS Lambda backend.
