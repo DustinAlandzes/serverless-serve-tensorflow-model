@@ -7,15 +7,17 @@
 AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3, and a Chalice/AWS Lambda backend.
 
 ## Usage
-Set these secrets and environment variables in Github (Under Settings > Secrets and Variables > Actions)
+1. Run generate-terraform-files.sh locally.
+2. Set these secrets and environment variables in Github (Under Settings > Secrets and Variables > Actions)
 * Environment Variables
-  * S3_BUCKET
-  * VITE_BACKEND_GRAPHQL_ENDPOINT
+  * S3_BUCKET (from Terraform after first plan E.g. serverless-module20240609203937756000000001)
+  * VITE_BACKEND_GRAPHQL_ENDPOINT (from Terraform after first plan add /graphql E.g.  https://e1qgaxcqtc.execute-api.us-west-2.amazonaws.com/api/graphql)
 * Secrets (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
   * AWS_ACCESS_KEY_ID
   * AWS_SECRET_ACCESS_KEY
-  * LAMBDA_URL (From Terraform)
-  * S3_BUCKET (From Terraform)
+
+3. Connect this repository to a workspace in Terraform Cloud and run the plan. After that you should get LAMBDA_URL and S3_BUCKET as outputs. Add those to the github repository as secrets.
+4. Now create a new pull request and merge it to deploy the frontend.
 
 ## URLS
 * frontend cloudfront distribution: https://d3ibzyj917g42s.cloudfront.net/
