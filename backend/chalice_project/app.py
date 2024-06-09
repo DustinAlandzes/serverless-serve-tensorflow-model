@@ -1,15 +1,18 @@
 import typing
 from chalice import Chalice
-from chalice.app import Request, Response
+from chalice.app import Request, Response, CORSConfig
 import strawberry
 from strawberry.chalice.views import GraphQLView
 from chalice import CognitoUserPoolAuthorizer
 
 app = Chalice(app_name="ChaliceProject")
 
-# TODO: enable CORS and set cloudfront distribution as allowed origin using CORSConfig
-#  (https://aws.github.io/chalice/api.html#CORSConfig)
-app.api.cors = True
+cors_config = CORSConfig(
+    allow_origin='https://d1envi61nk6uvp.cloudfront.net'
+)
+app.api.cors = cors_config
+
+
 
 # https://aws.github.io/chalice/topics/authorizers.html
 authorizer = CognitoUserPoolAuthorizer(
