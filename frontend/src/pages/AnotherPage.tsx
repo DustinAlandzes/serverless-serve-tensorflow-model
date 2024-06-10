@@ -13,7 +13,7 @@ function BooksList() {
     const {loading, data} = useQuery(GET_BOOKS, {
       context: {
         headers: {
-            authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
+            authorization: `Bearer ${sessionStorage.getItem('idToken')}`
         }
       }
     })
