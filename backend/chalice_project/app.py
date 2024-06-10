@@ -8,7 +8,7 @@ from chalice import CognitoUserPoolAuthorizer
 app = Chalice(app_name="ChaliceProject")
 
 cors_config = CORSConfig(
-    allow_origin='https://d1envi61nk6uvp.cloudfront.net/',
+    allow_origin='*',
     allow_credentials=True
 )
 
