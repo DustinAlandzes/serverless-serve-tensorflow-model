@@ -1,9 +1,8 @@
 import typing
-from chalice import Chalice
+from chalice import Chalice, CognitoUserPoolAuthorizer
 from chalice.app import Request, Response
 import strawberry
 from strawberry.chalice.views import GraphQLView
-from chalice import CognitoUserPoolAuthorizer
 
 app = Chalice(app_name="ChaliceProject")
 
