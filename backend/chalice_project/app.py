@@ -1,10 +1,18 @@
 import typing
-from chalice import Chalice, CognitoUserPoolAuthorizer
-from chalice.app import Request, Response
+from chalice import Chalice
+from chalice.app import Request, Response, CORSConfig
 import strawberry
 from strawberry.chalice.views import GraphQLView
+from chalice import CognitoUserPoolAuthorizer
 
 app = Chalice(app_name="ChaliceProject")
+
+cors_config = CORSConfig(
+    allow_origin='*',
+    allow_credentials=True
+)
+
+app.api.cors = cors_config
 
 # https://aws.github.io/chalice/topics/authorizers.html
 authorizer = CognitoUserPoolAuthorizer(
