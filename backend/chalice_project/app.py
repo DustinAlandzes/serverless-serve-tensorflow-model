@@ -6,7 +6,7 @@ from strawberry.chalice.views import GraphQLView
 from chalice import CognitoUserPoolAuthorizer
 
 app = Chalice(app_name="ChaliceProject")
-app.api.cors = False
+app.api.cors = True
 
 # https://aws.github.io/chalice/topics/authorizers.html
 authorizer = CognitoUserPoolAuthorizer(

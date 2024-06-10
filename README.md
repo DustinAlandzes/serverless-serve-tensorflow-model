@@ -47,6 +47,6 @@ AWS Serverless module using Terraform, a React/TypeScript frontend hosted on S3,
 * [Strawberry](https://strawberry.rocks/docs), GraphQL
 
 ## TODO
-* Add AWS Cognito for accessing the API from the frontend
-  * https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cognito_user_pool
-  * https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html
+* Enable CORs
+* Clean up login/signup experience and add log out button
+* Serve a simple tensorflow model
